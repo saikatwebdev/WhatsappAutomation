@@ -7,13 +7,14 @@
 from twilio.rest import Client
 from datetime import datetime, timedelta
 import time
+from dotenv import load_dotenv
+import os
+#Twilio credentials
+load_dotenv()
+TWILIO_SID = os.getenv('TWILIO_SID')
+TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
 
-
-#twilo credentials
-account_sid = 'AC855dad0cf24bd87a27c975aec3b9c006'
-auth_token = 'cc0f430213bc1502ab608baa5ae2fc06'
-
-Client = Client(account_sid, auth_token)
+Client = Client(TWILIO_SID, TWILIO_AUTH_TOKEN)
 
 #send message function
 def send_message(to, message_body):
